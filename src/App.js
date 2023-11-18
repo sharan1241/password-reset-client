@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import ForgotPassword from "./pages/Authentication/ForgotPassword";
+import ResetPassword from "./pages/Application/ResetPassword";
+import { useEffect } from "react";
+import success from "./pages/Application/success";
+import Email from "./pages/Application/Email";
+import Verify from "./pages/Application/Verify";
+
 
 function App() {
+  const token = localStorage.getItem("refreshToken")
+   
+
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        {!token && <Route path="/forgotpassword" Component={ForgotPassword}/>}
+        {token && <Route path="/resetpassword" Component={ResetPassword}/>}
+        {token && <Route path="/success" Component={success}/>}
+        {token && <Route path="/email" Component={Email}/>}
+        {token && <Route path="/verify/:key" Component={Verify}/>}
+      </Routes>
     </div>
   );
 }
