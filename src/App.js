@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import success from "./pages/Application/success";
 import Email from "./pages/Application/Email";
 import Verify from "./pages/Application/Verify";
+import Home from "./pages/Application/Home";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
+        {!token && <Route path="/" Component={Home}/>}
         {!token && <Route path="/forgotpassword" Component={ForgotPassword}/>}
         {token && <Route path="/resetpassword" Component={ResetPassword}/>}
         {token && <Route path="/success" Component={success}/>}

@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate,} from 'react-router-dom';
 import { decodeJWT } from '../../utils/jwt.utils';
 import { useState } from 'react';
-const  PASS_RESET_API = "http://localhost:5000/api/auth/resetpassword"
+const  PASS_RESET_API = "https://password-reset-o2fx.onrender.com/api/auth/resetpassword"
 
 export default function ResetPassword() {
   const [form,setForm] = useState({})

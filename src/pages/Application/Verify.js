@@ -3,7 +3,7 @@ import { useNavigate, useParams,} from 'react-router-dom';
 import { decodeJWT } from '../../utils/jwt.utils';
 import { useState } from 'react';
 
-const VERIFY_API = "http://localhost:5000/api/auth/verify"
+const VERIFY_API = "https://password-reset-o2fx.onrender.com/api/auth/verify"
 
 export default function Verify() {
     const [form,setForm] = useState({})
